@@ -46,4 +46,4 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_("Form"))
-        self.label.setText(_("Card Type:"))
+        self.label.setText(_("Card Number:"))

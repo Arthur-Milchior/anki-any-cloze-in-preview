@@ -37,7 +37,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Card Type:</string>
+        <string>Card Number:</string>
        </property>
       </widget>
      </item>

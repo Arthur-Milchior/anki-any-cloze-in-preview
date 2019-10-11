@@ -3,12 +3,12 @@
 ## Rationale
 When you edit a card template, you want to be able to preview it in
 real time. With Cloze deletion, by default, you can only preview the
-first card. That's strange I believe.
+first card. That's strange, I believe.
 
 With this add-on, you can select the cloze number you'll be
 previewing.
 
-I believe that this is mostly usefull if you ever use conditions, such
+I believe that this is mostly useful if you ever use conditions, such
 as {{#c ... }} {{/c ...}} and {{^c ... }} {{/c ...}}, which show a
 different content depending on the card number.
 
@@ -18,7 +18,7 @@ In `aqt.clayout.CardLayout`, it changes the methods:
 * `setupTopArea`
 * `onCardSelected`
 * `updateMainArea`
-The following method are also changed, and the previous version of the
+The following methods are also changed, and the previous version of the
 method is called.
 * `__init__`
 * `updateCardNames`

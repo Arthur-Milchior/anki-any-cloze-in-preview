@@ -26,7 +26,7 @@ def redraw(self):
     """
     self.cards = self.col.previewCards(self.note, 2, did=self.did)
     # the list of cards of this note, with all templates
-    if self.ord >= len(self.cards) and not self._isCloze():
+    if self.ord >= len(self.cards) and not self._isCloze(): # the right of the conjunct is new
         self.ord = len(self.cards) - 1
     self.redrawing = True
     self.updateTopArea()
@@ -41,11 +41,11 @@ def setupTopArea(self):
     self.topArea = QWidget()
     self.topAreaForm = Ui_Form() if self._isCloze() else aqt.forms.clayout_top.Ui_Form()
     self.topAreaForm.setupUi(self.topArea)
-    if self._isCloze():
+    if self._isCloze(): # start new
         cardNumber = self.ord+1
         self.topAreaForm.clozeNumber.setValue(cardNumber)
         self.topAreaForm.clozeNumber.valueChanged.connect(self.onCardSelected)
-    else:
+    else: # end new
         self.topAreaForm.templateOptions.setText(
             _("Options") + " "+downArrow())
         self.topAreaForm.templateOptions.clicked.connect(self.onMore)
@@ -69,17 +69,18 @@ def updateCardNames(self):
 CardLayout.updateCardNames = updateCardNames
 
 
-def onCardSelected(self, idx=None):
+def onCardSelected(self, idx=None): #default to None is new
     if self.redrawing:
         return
+    # original is self.ord = idx
     if idx is not None:
         self.ord = idx-1 if self._isCloze() else idx
-    if self._isCloze():
+    if self._isCloze(): #start new
         tmpl = copy.copy(self.note.model()['tmpls'][0])
         tmpl['ord'] = self.ord
         self.card = self.col._newCard(
             self.note, tmpl, 1, flush=False, did=self.did)
-    else:
+    else: # end new
         self.card = self.cards[self.ord]
     self.playedAudio = {}
     self.readCard()

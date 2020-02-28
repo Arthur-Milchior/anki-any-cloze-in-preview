@@ -11,7 +11,6 @@ from anki.lang import _
 # WARNING! All changes made in this file will be lost!
 
 
-
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -31,7 +30,8 @@ class Ui_Form(object):
         self.clozeNumber.setMaximum(999999)
         self.clozeNumber.setObjectName("clozeNumber")
         self.horizontalLayout.addWidget(self.clozeNumber)
-        spacerItem = QtWidgets.QSpacerItem(1, 20, QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            1, 20, QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.changesLabel = QtWidgets.QLabel(Form)

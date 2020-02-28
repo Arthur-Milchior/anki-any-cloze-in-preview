@@ -24,12 +24,16 @@ def redraw(self):
     """TODO
     update the list of card
     """
-    self.cards = self.col.previewCards(self.note, 2, did=self.did)
+    did = None
+    if hasattr(self.parent, "deckChooser"):
+        did = self.parent.deckChooser.selectedId()
+    self.cards = self.col.previewCards(self.note, 2, did=did)
     # the list of cards of this note, with all templates
     if self.ord >= len(self.cards) and not self._isCloze(): # the right of the conjunct is new
         self.ord = len(self.cards) - 1
     self.redrawing = True
     self.updateTopArea()
+    self.updateMainArea()
     self.redrawing = False
     self.onCardSelected()
 

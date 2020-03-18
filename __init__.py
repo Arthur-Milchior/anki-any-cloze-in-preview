@@ -1,6 +1,7 @@
 import copy
 
 import aqt
+from anki.lang import _
 from aqt.clayout import CardLayout
 from aqt.qt import QWidget
 from aqt.utils import downArrow

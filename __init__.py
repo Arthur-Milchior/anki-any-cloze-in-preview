@@ -11,11 +11,11 @@ from .clayout_top_cloze import Ui_Form
 oldInit = CardLayout.__init__
 
 
-def __init__(self, mw, note, ord=0, parent=None, addMode=False):
+def __init__(self, mw, note, ord=0, parent=None, fill_empty=False):
     parent = parent or mw
     self.did = parent.deckChooser.selectedId() if hasattr(
         parent, "deckChooser") else None
-    return oldInit(self, mw, note, ord, parent, addMode)
+    return oldInit(self, mw, note, ord, parent, fill_empty)
 
 
 CardLayout.__init__ = __init__

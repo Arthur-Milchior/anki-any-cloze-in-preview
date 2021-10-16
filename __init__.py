@@ -81,7 +81,7 @@ def onCardSelected(self, idx=None): #default to None is new
     if idx is not None:
         self.ord = idx-1 if self._isCloze() else idx
     if self._isCloze(): #start new
-        tmpl = copy.copy(self.note.model()['tmpls'][0])
+        tmpl = copy.copy(self.note.note_type()['tmpls'][0])
         tmpl['ord'] = self.ord
         self.card = self.col._newCard(
             self.note, tmpl, 1, flush=False, did=self.did)
